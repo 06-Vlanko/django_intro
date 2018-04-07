@@ -15,9 +15,9 @@
         <div id="wrapper">
             <p>
                 <label for="gold">Your Gold: </label>
-                <input type="text" name="gold" value="{{total_gold}}" readonly>
+                <input type="text" name="gold" value="{{request.session.total_gold}}" readonly>
             </p>
-            <div class="box_holder">
+            <div id="box_holder">
                 <div class="location">
                     <h3>Farm</h3>
                     <p>(earns 10-20 golds)</p>
@@ -55,13 +55,23 @@
                     </form>
                 </div>
             </div>
-            <p>Activities:</p>
-            <textarea name="activities" cols="96" rows="8"></textarea>
-                
-            <form action="/clear">
-                {% csrf_token %}
-                <input type="submit" value="Clear">
-            </form>
+            <div id="history_holder">
+                <p> Activities:</p>
+                <div id="history">
+                    {% load mathfilters %}
+                    {% for element in request.session.activities %}
+                        {% if element.money_source == 'casino' and element.gold < 0 %}
+                            <p class="red">Entered a casino and lost {{ element.gold|abs }}... Ouch! ( {{ element.time }} )</p>
+                        {% else %}
+                            <p class="green">Earned {{ element.gold }} gold(s) from the {{ element.money_source }}! ({{ element.time }})</p>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <form action="/clear">
+                    {% csrf_token %}
+                    <input type="submit" value="Clear">
+                </form>
+            </div>
         </div>
     </body>
 </html>

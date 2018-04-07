@@ -1,9 +1,16 @@
 
+label {
+    display: inline-block;
+}
+textarea {
+    height: 200px;
+
+}
 #wrapper {
     width: 825px;
     padding: 20px;
 }
-.box_holder {
+#box_holder {
     margin-bottom: 20px;
 }
 .location {
@@ -15,6 +22,26 @@
     border: 1px solid #D1D1D1;
     border-radius: 5px;
 }
-label {
-    display: inline-block;
+#history_holder {
+    margin: 10px;
+}
+#history_holder p {
+    margin: 5px 0px
+}
+#history_holder form {
+    margin-top: 20px;
+}
+#history {
+    overflow-y: auto;
+    margin-right: 5px;
+    height: 200px;
+    padding: 10px;
+    border: 1px solid #D1D1D1;
+    border-radius: 5px;
+}
+.green {
+    color: green;
+}
+.red {
+    color: red;
 }
