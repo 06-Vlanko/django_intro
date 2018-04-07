@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <title>Checkout</title>
+    </head>
+    <body>
+        <div id="wrapper">
+            <h1>Thank you for your business!</h1>
+            <p>We charged your credti card for ${{ this_purchase }}.</p>
+            <p>You have ordered {{request.session.total_items}} item(s) so far and spent {{request.session.total_purchase}} with Amadon.com</p>
+            <a href="/amadon">Go back</a>
+        </div>
+    </body>
+</html>
